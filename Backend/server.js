@@ -4,6 +4,7 @@ const cors = require('cors');
 const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
 const dotenv = require('dotenv');
+const path = require('path');
 
 // Load environment variables FIRST
 dotenv.config();
@@ -57,6 +58,8 @@ app.use(rateLimit({
 
 app.use(express.json({ limit: '2mb' }));
 
+const frontendPath = path.join(__dirname, '..', 'Frontend');
+
 const allowedOrigins = (process.env.ALLOWED_ORIGINS || process.env.FRONTEND_URL || 'http://localhost:3000')
   .split(',')
   .map((origin) => origin.trim())
@@ -82,6 +85,8 @@ const corsOptions = {
 
 // Use the CORS middleware with options
 app.use(cors(corsOptions));
+
+app.use(express.static(frontendPath));
 
 // MongoDB connection with improved error handling
 const connectDB = async () => {
@@ -137,6 +142,10 @@ app.get('/health', (req, res) => {
     database: dbStatus,
     aiEnabled: !!process.env.GOOGLE_AI_API_KEY
   });
+});
+
+app.get('/', (req, res) => {
+  res.sendFile(path.join(frontendPath, 'index.html'));
 });
 
 // Error handling middleware

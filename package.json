@@ -1,0 +1,14 @@
+{
+  "name": "mindspace-digital-mental-health-support-platform",
+  "version": "1.0.0",
+  "private": true,
+  "description": "MindSpace full-stack deployment wrapper",
+  "scripts": {
+    "postinstall": "npm --prefix Backend install",
+    "start": "node Backend/server.js",
+    "test": "npm --prefix Backend test"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}
