@@ -69,7 +69,9 @@ const allowedOrigins = (process.env.ALLOWED_ORIGINS || process.env.FRONTEND_URL 
 const corsOptions = {
   origin: function(origin, callback) {
     // Allow requests with no origin (like mobile apps, curl, etc.)
-    if (!origin || allowedOrigins.includes(origin)) {
+    const isVercelPreview = /\.vercel\.app$/.test(new URL(origin || 'http://localhost').hostname);
+
+    if (!origin || allowedOrigins.includes(origin) || isVercelPreview) {
       callback(null, true);
     } else {
       console.log('Blocked by CORS - Origin:', origin);
@@ -123,10 +125,14 @@ app.use('/api/appointments', appointmentRoutes);
 
 // Config endpoint to serve environment URLs to frontend
 app.get('/api/config', (req, res) => {
+  const fallbackBackendUrl = process.env.VERCEL_URL
+    ? `https://${process.env.VERCEL_URL}`
+    : `${req.protocol}://${req.get('host')}`;
+
   res.status(200).json({
     success: true,
     config: {
-      backendApiUrl: process.env.BACKEND_API_URL || 'http://localhost:5001',
+      backendApiUrl: process.env.BACKEND_API_URL || fallbackBackendUrl,
       mlServiceUrl: process.env.ML_SERVICE_URL || 'http://localhost:5000/predict_emotion'
     }
   });
@@ -169,4 +175,10 @@ const startServer = async () => {
   });
 };
 
-startServer();
+if (require.main === module) {
+  startServer();
+} else {
+  connectDB();
+}
+
+module.exports = app;

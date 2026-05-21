@@ -5,7 +5,7 @@
                          !window.location.hostname.includes('127.0.0.1') &&
                          !window.location.hostname.includes('file://');
 
-    const productionApiUrl = 'https://mindspace-evbkexexh2azcgfc.centralindia-01.azurewebsites.net';
+    const productionApiUrl = window.location.origin;
     
     if (isProduction) {
         // Production environment
