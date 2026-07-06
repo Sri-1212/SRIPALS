@@ -1,14 +1,14 @@
 /* Global Styles */
 :root {
-    --primary-color: #4073c0;
-    --secondary-color: #6b8eba;
-    --accent-color: #5e60ce;
-    --light-color: #f7f9fd;
-    --dark-color: #001835;
-    --success-color: #4ca154;
-    --text-color: #2f3a4b;
-    --background-color: #fdfefe;
-    --shadow: 0 12px 35px rgba(15, 23, 42, 0.10);
+    --primary-color: #6b4eff;
+    --secondary-color: #8f7dff;
+    --accent-color: #2f9e9a;
+    --light-color: #f8f6ff;
+    --dark-color: #1d2340;
+    --success-color: #30a67a;
+    --text-color: #394357;
+    --background-color: #fcfbff;
+    --shadow: 0 16px 40px rgba(58, 42, 126, 0.12);
     --transition: all 0.3s ease;
 }
 
@@ -22,7 +22,7 @@ body {
     font-family: 'Poppins', sans-serif;
     color: var(--text-color);
     line-height: 1.6;
-    background: linear-gradient(135deg, #fdfefe 0%, #f3f7ff 100%);
+    background: linear-gradient(135deg, #fcfbff 0%, #f1efff 45%, #eefcf8 100%);
 }
 
 .container {
@@ -247,7 +247,7 @@ header .container {
 /* Hero Section */
 .hero {
     padding: 90px 0 70px;
-    background: radial-gradient(circle at top left, rgba(94, 96, 206, 0.16), transparent 28%), linear-gradient(135deg, #f8fbff 0%, #edf4ff 100%);
+    background: radial-gradient(circle at top left, rgba(107, 78, 255, 0.16), transparent 28%), linear-gradient(135deg, #fbfaff 0%, #eef4ff 45%, #edfdf8 100%);
 }
 
 .hero .container {
@@ -266,11 +266,12 @@ header .container {
     gap: 8px;
     padding: 8px 14px;
     border-radius: 999px;
-    background: rgba(64, 115, 192, 0.1);
+    background: rgba(107, 78, 255, 0.12);
     color: var(--primary-color);
     font-size: 0.95rem;
     margin-bottom: 16px;
     font-weight: 600;
+    backdrop-filter: blur(8px);
 }
 
 .hero-content h1 {
@@ -309,24 +310,24 @@ header .container {
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, var(--primary-color), #5f87d4);
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
     color: white;
-    box-shadow: 0 10px 20px rgba(64, 115, 192, 0.25);
+    box-shadow: 0 12px 24px rgba(107, 78, 255, 0.24);
 }
 
 .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 14px 25px rgba(64, 115, 192, 0.3);
+    box-shadow: 0 16px 28px rgba(107, 78, 255, 0.28);
 }
 
 .btn-secondary {
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.85);
     color: var(--primary-color);
-    border: 1px solid rgba(64, 115, 192, 0.2);
+    border: 1px solid rgba(107, 78, 255, 0.18);
 }
 
 .btn-secondary:hover {
-    background: var(--primary-color);
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
     color: white;
 }
 
@@ -343,10 +344,11 @@ header .container {
     gap: 6px;
     padding: 8px 12px;
     border-radius: 999px;
-    background: white;
+    background: rgba(255, 255, 255, 0.86);
     color: #3a4b63;
     box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
     font-size: 0.92rem;
+    border: 1px solid rgba(107, 78, 255, 0.08);
 }
 
 .hero-stats {
@@ -393,7 +395,7 @@ header .container {
 /* About Section Styles */
 .about {
     padding: 100px 0;
-    background-color: var(--background-color);
+    background: linear-gradient(135deg, #fcfbff 0%, #f4f2ff 100%);
     position: relative;
     overflow: hidden;
 }
@@ -405,7 +407,7 @@ header .container {
     right: -100px;
     width: 300px;
     height: 300px;
-    background-color: rgba(89, 134, 200, 0.05);
+    background: radial-gradient(circle, rgba(107, 78, 255, 0.12), transparent 70%);
     border-radius: 50%;
     z-index: 0;
 }
@@ -454,7 +456,7 @@ header .container {
 .key-icon {
     width: 60px;
     height: 60px;
-    background-color: rgba(74, 111, 165, 0.1);
+    background: linear-gradient(135deg, rgba(107, 78, 255, 0.16), rgba(47, 158, 154, 0.14));
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -545,7 +547,7 @@ header .container {
 /* Quick Links Section */
 .quick-links {
     padding: 80px 0;
-    background: linear-gradient(180deg, var(--light-color) 0%, #eef4ff 100%);
+    background: linear-gradient(180deg, #f8f6ff 0%, #eefcf8 100%);
 }
 
 .services-grid {
@@ -555,13 +557,13 @@ header .container {
 }
 
 .service-card {
-    background: linear-gradient(135deg, #ffffff 0%, #f5f9ff 100%);
+    background: linear-gradient(135deg, #ffffff 0%, #f8f7ff 100%);
     border-radius: 20px;
     padding: 30px;
     box-shadow: var(--shadow);
     transition: var(--transition);
     text-align: center;
-    border: 1px solid rgba(64, 115, 192, 0.12);
+    border: 1px solid rgba(107, 78, 255, 0.12);
     position: relative;
     overflow: hidden;
 }
